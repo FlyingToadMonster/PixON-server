@@ -26,7 +26,6 @@ if (!$con)
 if (!mysql_select_db($database, $con))
     die('[PixON] FAIL: Connect failed: '.mysql_error()."\n");
 
-# insert
 # FIXME: 这里不检查用户传来的key和value是否真的为hex，是一个对其他用户有害的漏洞
 $query = sprintf('INSERT INTO pixon_data (hash, `key`, value)
     VALUES ("%s", "%s", "%s")',
@@ -37,6 +36,5 @@ if (! mysql_query($query))
     die('[PixON] FAIL: MySQL error: '.mysql_error()."\n");
 echo "[PixON] DONE.\n";
 
-# end
 mysql_close($con);
 ?>

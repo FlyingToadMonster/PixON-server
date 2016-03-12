@@ -20,7 +20,6 @@ if (!$con)
 if (!mysql_select_db($database, $con))
     die('[PixON] FAIL: Connect failed: '.mysql_error()."\n");
 
-# insert
 $query = sprintf('SELECT `key`, value, votes FROM pixon_data
     WHERE hash = "%s"',
     mysql_real_escape_string($hash));
@@ -37,6 +36,5 @@ while ($row = mysql_fetch_array($result))
 
 echo "[DATA] DONE.\n";
 
-# end
 mysql_close($con);
 ?>
